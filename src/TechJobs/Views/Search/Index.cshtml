@@ -32,5 +32,28 @@
 
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-    // TODO #2 - Loop over jobs dictionary and display all job fields 
+    // TODO #2 - Loop over jobs dictionary and display all job fields
+    @if (ViewBag.jobs.Count >0)
+    {
+        foreach (Dictionary<string, string> dictionary in ViewBag.jobs)
+        {
+            <table>
+                @*if the html doesn't have its partner/html, it will look for the @ symbol to
+                    indicate you are adding C# code to you html*@
+                @foreach (KeyValuePair<string, string> kvp in dictionary)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@kvp.Key</strong>
+                            </td>
+                            <td>
+                                @kvp.Value
+                            </td>
+                        </tr>
+                    }
+            </table>
+        }
+
+    }
+    
 }
