@@ -5,6 +5,7 @@
 {
     <tr class="@( i % 2 == 0 ? "even" : "odd" ) ">
         <td><a asp-controller="List" asp-action="Jobs" asp-route-column="@ViewBag.column" asp-route-value="@ViewBag.items[i]">@ViewBag.items[i]</a></td>
+        @* url: /List/Jobs?column=location&value=Kansas%20City*@
     </tr>  
 }   
 </table>
