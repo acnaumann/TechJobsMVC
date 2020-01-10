@@ -1,4 +1,4 @@
-﻿ <h1>@ViewBag.title</h1>
+﻿ @*<h1>@ViewBag.title</h1>*@
 
 <form action="/Search/Results">
     <h2>Search by:</h2>
@@ -37,7 +37,7 @@
     {
         foreach (Dictionary<string, string> dictionary in ViewBag.jobs)
         {
-            <table>
+            <table class="job-listing">
                 @*if the html doesn't have its partner/html, it will look for the @ symbol to
                     indicate you are adding C# code to you html*@
                 @foreach (KeyValuePair<string, string> kvp in dictionary)
