@@ -22,10 +22,21 @@ namespace TechJobs.Controllers
 
             if (searchType.Equals("all")) 
             {
-                List<Dictionary<string, string>> jobs = JobData.FindAll();
-                //ViewBag.title = "All Jobs"; 
-                ViewBag.jobs = jobs;
-                return View("Index");
+                if (searchTerm == null || searchTerm == "")
+                {
+                    List<Dictionary<string, string>> jobs = JobData.FindAll();
+                    //ViewBag.title = "All Jobs"; 
+                    ViewBag.jobs = jobs;
+                    return View("Index");
+                }
+                else
+                {
+                    List<Dictionary<string, string>> jobs = JobData.FindByValue(searchTerm);
+                    //ViewBag.title = "Jobs with " + ListController.columnChoices[searchType] + ": " + searchTerm;
+                    ViewBag.jobs = jobs;
+                    return View("Index");
+                }
+                
             }
             else if (searchTerm == null || searchTerm == "")  //string.IsNullOrEmpty(searchTerm)
             {
